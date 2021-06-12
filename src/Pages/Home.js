@@ -2,9 +2,7 @@ import React, { useState} from 'react'
 import MainPageLayout from '../Components/MainPageLayout';
 import {apiGet} from '../misc/config'
 import ShowGrid from '../Components/show/ShowGrid'
-import ShowCard from '../Components/show/ShowCard'
 import ActorGrid from '../Components/actor/ActorGrid'
-import ActorCard from '../Components/actor/ActorCard'
 
 const Home = () => {
     const [input,setInput] = useState('');
@@ -13,7 +11,7 @@ const Home = () => {
 
     const showsSearch = onSearchOption === 'shows';
 
-    const onSearch = (ev) => {
+    const onSearch = () => {
         apiGet(`/search/${onSearchOption}?q=${input}`)
         .then(result => setResults(result))
     }
